@@ -1,0 +1,306 @@
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Rows: 393596 Columns: 15
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (13): race, ethnicity, sex, ins1, ins2, aname1, aname2, aname3, aname4,...
+dbl   (1): person_id
+dttm  (1): date_of_birth
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
+### Frequency Tables: Original and Categorized Variables ###
+
+--- SEX ---
+                              original sex frequency
+1                                   Female    239564
+2                   I prefer not to answer       287
+3                                 Intersex        93
+4                                     Male    149867
+5                      No matching concept       223
+6                                PMI: Skip      3438
+7 Sex At Birth: Sex At Birth None Of These       124
+  sex (categorized) frequency
+1                 0    149867
+2                 1    239564
+3               999      4165
+
+--- RACE ---
+                               original race frequency
+1           American Indian or Alaska Native      6030
+2                                      Asian     11690
+3                  Black or African American     68531
+4                     I prefer not to answer      2212
+5            Middle Eastern or North African      2221
+6                   More than one population     17578
+7  Native Hawaiian or Other Pacific Islander       438
+8                             None Indicated     59609
+9                              None of these      4042
+10                                 PMI: Skip      4784
+11                                     White    216461
+  race (categorized) frequency
+1                  0    216461
+2                  1     68531
+3                  2     11690
+4                  3      2221
+5                  4       438
+6                  5      6030
+7                  6     17578
+8                999     70647
+
+--- ETHNICITY ---
+                                 original ethnicity frequency
+1                                Hispanic or Latino     71795
+2                               No matching concept         3
+3                            Not Hispanic or Latino    310760
+4                         PMI: Prefer Not To Answer      2212
+5                                         PMI: Skip      4784
+6 What Race Ethnicity: Race Ethnicity None Of These      4042
+  ethnicity (categorized) frequency
+1                       0    310760
+2                       1     71795
+3                     999     11041
+
+--- RACE & ETHNICITY ---
+                               original race & ethnicity frequency
+1                                               Hispanic     71795
+2          Non-Hispanic American Indian or Alaska Native      4493
+3                                     Non-Hispanic Asian     11340
+4                                     Non-Hispanic Black     67197
+5           Non-Hispanic Middle Eastern or North African      2092
+6 Non-Hispanic Native Hawaiian or Other Pacific Islander       374
+7                                     Non-Hispanic White    210276
+8                                Other Race or Ethnicity     26029
+  race & ethnicity (categorized) frequency
+1                              0    210276
+2                              1     67197
+3                              2     71795
+4                              3     33287
+5                            999     11041
+
+--- AGE ---
+  age group (categorized) frequency
+1                   18-44    118615
+2                   45-64    139663
+3                    >=65    135318
+  age group code frequency
+1              1    118615
+2              2    139663
+3              3    135318
+
+--- INSURANCE ---
+         original insurance frequency
+1      Health Insurance: No     21716
+2     Health Insurance: Yes    361667
+3            PMI: Dont Know      3011
+4 PMI: Prefer Not To Answer      3696
+5                 PMI: Skip      3503
+6                      <NA>         3
+  insurance (categorized) frequency
+1                       0     21716
+2                       1    361667
+3                     998         3
+4                     999     10210
+                       original insurance 2 frequency
+1  Insurance Type Update: Employer Or Union    132417
+2             Insurance Type Update: Indian      1619
+3           Insurance Type Update: Medicaid     89328
+4           Insurance Type Update: Medicare     47294
+5           Insurance Type Update: Military      5713
+6               Insurance Type Update: None      1971
+7  Insurance Type Update: Other Health Plan     11692
+8          Insurance Type Update: Purchased     29321
+9                 Insurance Type Update: VA     12764
+10                                  Invalid       615
+11                                PMI: Skip      3557
+12                                     <NA>     57305
+   insurance 2 (categorized) frequency
+1                          0      1971
+2                          1     47294
+3                          2     89328
+4                          3     29321
+5                          4    132417
+6                          5      5713
+7                          6     11692
+8                          7     12764
+9                          8      1619
+10                       998     57305
+11                       999      4172
+  insurance category frequency
+1                  0    180377
+2                  1    173428
+3                998     35619
+4                999      4172
+
+--- INCOME ---
+             original income frequency
+1   Annual Income: 100k 150k     40836
+2     Annual Income: 10k 25k     44531
+3   Annual Income: 150k 200k     19069
+4     Annual Income: 25k 35k     27661
+5     Annual Income: 35k 50k     31620
+6     Annual Income: 50k 75k     42390
+7    Annual Income: 75k 100k     32951
+8    Annual Income: less 10k     50078
+9   Annual Income: more 200k     26112
+10 PMI: Prefer Not To Answer     52602
+11                 PMI: Skip     25743
+12                      <NA>         3
+   income (categorized) frequency
+1                     0     50078
+2                     1     44531
+3                     2     27661
+4                     3     31620
+5                     4     42390
+6                     5     32951
+7                     6     40836
+8                     7     19069
+9                     8     26112
+10                  998         3
+11                  999     78345
+
+--- EDUCATION ---
+                    original education frequency
+1       Highest Grade: Advanced Degree     83228
+2      Highest Grade: College Graduate     89340
+3  Highest Grade: College One to Three    102999
+4    Highest Grade: Five Through Eight      8550
+5        Highest Grade: Never Attended       537
+6   Highest Grade: Nine Through Eleven     22535
+7      Highest Grade: One Through Four      3151
+8         Highest Grade: Twelve Or GED     74172
+9            PMI: Prefer Not To Answer      2306
+10                           PMI: Skip      6775
+11                                <NA>         3
+  education (categorized) frequency
+1                       0     34773
+2                       1     74172
+3                       2    102999
+4                       3     89340
+5                       4     83228
+6                     998         3
+7                     999      9081
+
+--- CIGARETTE USE ---
+     original cigarette use frequency
+1     100 Cigs Lifetime: No    225646
+2    100 Cigs Lifetime: Yes    154360
+3            PMI: Dont Know      5112
+4 PMI: Prefer Not To Answer      1732
+5                 PMI: Skip      2673
+6                      <NA>      4073
+  cigarette use (categorized) frequency
+1                           0    225646
+2                           1    154360
+3                         998      4073
+4                         999      9517
+  original cigarette use frequency frequency
+1                   PMI: Dont Know       415
+2        PMI: Prefer Not To Answer       631
+3                        PMI: Skip      1602
+4       Smoke Frequency: Every Day     40917
+5      Smoke Frequency: Not At All     93508
+6       Smoke Frequency: Some Days     19823
+7                             <NA>    236700
+  cigarette use frequency (categorized) frequency
+1                                     0     93508
+2                                     1     60740
+3                                   998    236700
+4                                   999      2648
+  smoking status (categorized) frequency
+1                            0    318037
+2                            1     60740
+3                          999     14819
+
+--- ALCOHOL USE ---
+       original alcohol use frequency
+1   Alcohol Participant: No     38634
+2  Alcohol Participant: Yes    344814
+3 PMI: Prefer Not To Answer      2322
+4                 PMI: Skip      3753
+5                      <NA>      4073
+  alcohol use (categorized) frequency
+1                         0     38634
+2                         1    344814
+3                       998      4073
+4                       999      6075
+
+--- ALCOHOL FREQUENCY ---
+                     original alcohol frequency frequency
+1    Drink Frequency Past Year: 2 to 3 Per Week     47967
+2   Drink Frequency Past Year: 2 to 4 Per Month     71320
+3 Drink Frequency Past Year: 4 or More Per Week     41520
+4    Drink Frequency Past Year: Monthly Or Less    116299
+5              Drink Frequency Past Year: Never     64895
+6                     PMI: Prefer Not To Answer      3650
+7                                     PMI: Skip      2747
+8                                          <NA>     45198
+  alcohol frequency (categorized) frequency
+1                               0     64895
+2                               1    116299
+3                               2     71320
+4                               3     47967
+5                               4     41520
+6                             998     45198
+7                             999      6397
+
+--- AVERAGE DAILY DRINK ---
+           original average daily drink frequency
+1     Average Daily Drink Count: 1 or 2    204640
+2 Average Daily Drink Count: 10 or More      3385
+3     Average Daily Drink Count: 3 or 4     47064
+4     Average Daily Drink Count: 5 or 6     12573
+5     Average Daily Drink Count: 7 to 9      3339
+6             PMI: Prefer Not To Answer      4993
+7                             PMI: Skip      3833
+8                                  <NA>    113769
+  average daily drink (categorized) frequency
+1                                 0    204640
+2                                 1     47064
+3                                 2     12573
+4                                 3      3339
+5                                 4      3385
+6                               998    113769
+7                               999      8826
+
+--- HEAVY DRINK FREQUENCY ---
+                   original heavy drink frequency frequency
+1              6 or More Drinks Occurrence: Daily      4799
+2  6 or More Drinks Occurrence: Less Than Monthly     74200
+3            6 or More Drinks Occurrence: Monthly     23678
+4 6 or More Drinks Occurrence: Never In Last Year    160612
+5             6 or More Drinks Occurrence: Weekly     10617
+6                       PMI: Prefer Not To Answer      2587
+7                                       PMI: Skip      3376
+8                                            <NA>    113727
+  heavy drink frequency (categorized) frequency
+1                                   0    160612
+2                                   1     74200
+3                                   2     23678
+4                                   3     10617
+5                                   4      4799
+6                                 998    113727
+7                                 999      5963
+
+--- ALCOHOL EXCLUSION ---
+  missing alcohol data frequency
+1                    0    306702
+2                    1     86894
+  too much alcohol exclusion frequency
+1                          0    380018
+2                          1     13578
+Rows in mother_df: 393596 
+A tibble: 1 × 4
+epilepsy_or_seizure	mci	adrd	stroke
+<int>	<int>	<int>	<int>
+19044	11875	9227	18282
+'gs://fc-secure-d1aa6948-240e-45a7-8ae6-1771e86e1102/data/ehr_df.csv'
+'gs://fc-secure-d1aa6948-240e-45a7-8ae6-1771e86e1102/data/mother_df.csv'

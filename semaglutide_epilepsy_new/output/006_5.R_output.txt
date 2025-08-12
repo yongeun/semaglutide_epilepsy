@@ -1,0 +1,569 @@
+Loading required package: iterators
+
+Installing package into ‘/home/jupyter/packages’
+(as ‘lib’ is unspecified)
+
+Loading required package: snow
+
+
+Attaching package: ‘snow’
+
+
+The following objects are masked from ‘package:parallel’:
+
+    closeNode, clusterApply, clusterApplyLB, clusterCall, clusterEvalQ,
+    clusterExport, clusterMap, clusterSplit, makeCluster, parApply,
+    parCapply, parLapply, parRapply, parSapply, recvData, recvOneData,
+    sendData, splitIndices, stopCluster
+
+=== Running TMLE Bootstrap-Focused Analysis ===
+Filtered to:
+- Outcomes: Late-onset Epilepsy/Seizure 
+- Comparisons: GLP1 vs SGLT2, GLP1 vs SU_DPP4 
+
+
+========= TMLE Bootstrap Analysis: GLP1 vs SGLT2 - Late-onset Epilepsy/Seizure =========
+
+--- DEBUG followup_and_event function ---
+Input parameters:
+- outcome_var: epilepsy_or_seizure_start_date 
+- data_cut_date: 2023-10-01 
+- late_onset: TRUE 
+- early_onset: FALSE 
+
+Before excluding pre-existing Late-onset Epilepsy/Seizure patients: 7034 
+After excluding pre-existing Late-onset Epilepsy/Seizure patients: 6656 (excluded: 378 patients)
+- Input data rows: 6656 
+- Patients with outcome dates: 125 
+- Outcome date range: 17701 to 19631 
+
+DEBUG intermediate calculations:
+- Crossover dates available: 0 
+- EHR end dates available: 5497 
+- Raw events (before late-onset filter): 96 
+- Events after time >= 0 filter: 83 
+- Patients filtered out due to event_time < 0: 817 
+- Late-onset applied: events with age >= 50: 83 
+
+Event time distribution:
+- Min event_time: 0 
+- Max event_time: 2085 
+- Mean event_time: 879.4891 
+
+Censoring reasons:
+
+              Event after censoring                      Event occurred 
+                                 18                                  96 
+No event - administrative censoring 
+                               5725 
+--- END DEBUG followup_and_event ---
+
+
+Total sample size before TMLE: 5839 
+Total events: 83 
+
+=== Starting Bootstrap Analysis ===
+
+Performing TMLE bootstrap with 1000 replicates using parallel processing...
+Using 15 cores
+  |======================================================================| 100%
+
+Successful bootstrap replicates: 1000 out of 1000 
+
+Saved bootstrap results to: tmle_bootstrap_GLP1_vs_SGLT2_Late-onset_Epilepsy_Seizure.rds 
+Saved bootstrap samples to: tmle_bootstrap_samples_GLP1_vs_SGLT2_Late-onset_Epilepsy_Seizure.csv 
+Uploaded files to bucket
+
+Bootstrap Summary:
+Mean risk difference: -0.0093 
+Bootstrap 95% CI: [ -0.0157 , -0.0024 ]
+Bootstrap SD: 0.0034 
+Saved bootstrap histogram to: bootstrap_hist_GLP1_vs_SGLT2_Late-onset_Epilepsy_Seizure.png 
+Auto-refreshing stale OAuth token.
+
+
+========= TMLE Bootstrap Analysis: GLP1 vs SU_DPP4 - Late-onset Epilepsy/Seizure =========
+
+--- DEBUG followup_and_event function ---
+Input parameters:
+- outcome_var: epilepsy_or_seizure_start_date 
+- data_cut_date: 2023-10-01 
+- late_onset: TRUE 
+- early_onset: FALSE 
+
+Before excluding pre-existing Late-onset Epilepsy/Seizure patients: 9746 
+After excluding pre-existing Late-onset Epilepsy/Seizure patients: 9272 (excluded: 474 patients)
+- Input data rows: 9272 
+- Patients with outcome dates: 240 
+- Outcome date range: 17630 to 19624 
+
+DEBUG intermediate calculations:
+- Crossover dates available: 0 
+- EHR end dates available: 7785 
+- Raw events (before late-onset filter): 172 
+- Events after time >= 0 filter: 148 
+- Patients filtered out due to event_time < 0: 1056 
+- Late-onset applied: events with age >= 50: 148 
+
+Event time distribution:
+- Min event_time: 0 
+- Max event_time: 2098 
+- Mean event_time: 978.8768 
+
+Censoring reasons:
+
+              Event after censoring                      Event occurred 
+                                 51                                 172 
+No event - administrative censoring 
+                               7993 
+--- END DEBUG followup_and_event ---
+
+
+Total sample size before TMLE: 8216 
+Total events: 148 
+
+=== Starting Bootstrap Analysis ===
+
+Performing TMLE bootstrap with 1000 replicates using parallel processing...
+Using 15 cores
+  |======================================================================| 100%
+
+Successful bootstrap replicates: 1000 out of 1000 
+
+Saved bootstrap results to: tmle_bootstrap_GLP1_vs_SU_DPP4_Late-onset_Epilepsy_Seizure.rds 
+Saved bootstrap samples to: tmle_bootstrap_samples_GLP1_vs_SU_DPP4_Late-onset_Epilepsy_Seizure.csv 
+Uploaded files to bucket
+
+Bootstrap Summary:
+Mean risk difference: -0.0112 
+Bootstrap 95% CI: [ -0.017 , -0.0043 ]
+Bootstrap SD: 0.0032 
+Saved bootstrap histogram to: bootstrap_hist_GLP1_vs_SU_DPP4_Late-onset_Epilepsy_Seizure.png 
+
+
+Bootstrap-focused analysis complete.
+Check saved files for bootstrap statistics and plots.
+
+=== Running TMLE Bootstrap-Focused Analysis ===
+Filtered to:
+- Outcomes: Epilepsy/Seizure 
+- Comparisons: GLP1 vs SGLT2, GLP1 vs SU_DPP4 
+
+Auto-refreshing stale OAuth token.
+
+
+========= TMLE Bootstrap Analysis: GLP1 vs SGLT2 - Epilepsy/Seizure =========
+
+--- DEBUG followup_and_event function ---
+Input parameters:
+- outcome_var: epilepsy_or_seizure_start_date 
+- data_cut_date: 2023-10-01 
+- late_onset: FALSE 
+- early_onset: FALSE 
+
+Before excluding pre-existing Epilepsy/Seizure patients: 7034 
+After excluding pre-existing Epilepsy/Seizure patients: 6656 (excluded: 378 patients)
+- Input data rows: 6656 
+- Patients with outcome dates: 125 
+- Outcome date range: 17701 to 19631 
+
+DEBUG intermediate calculations:
+- Crossover dates available: 0 
+- EHR end dates available: 5497 
+- Raw events (before late-onset filter): 96 
+- Events after time >= 0 filter: 96 
+- Patients filtered out due to event_time < 0: 817 
+
+Event time distribution:
+- Min event_time: 0 
+- Max event_time: 2085 
+- Mean event_time: 879.4891 
+
+Censoring reasons:
+
+              Event after censoring                      Event occurred 
+                                 18                                  96 
+No event - administrative censoring 
+                               5725 
+--- END DEBUG followup_and_event ---
+
+
+Total sample size before TMLE: 5839 
+Total events: 96 
+
+=== Starting Bootstrap Analysis ===
+
+Performing TMLE bootstrap with 1000 replicates using parallel processing...
+Using 15 cores
+  |======================================================================| 100%
+
+Successful bootstrap replicates: 1000 out of 1000 
+
+Saved bootstrap results to: tmle_bootstrap_GLP1_vs_SGLT2_Epilepsy_Seizure.rds 
+Saved bootstrap samples to: tmle_bootstrap_samples_GLP1_vs_SGLT2_Epilepsy_Seizure.csv 
+Uploaded files to bucket
+
+Bootstrap Summary:
+Mean risk difference: -0.0102 
+Bootstrap 95% CI: [ -0.0166 , -0.0024 ]
+Bootstrap SD: 0.0036 
+Saved bootstrap histogram to: bootstrap_hist_GLP1_vs_SGLT2_Epilepsy_Seizure.png 
+Auto-refreshing stale OAuth token.
+
+
+========= TMLE Bootstrap Analysis: GLP1 vs SU_DPP4 - Epilepsy/Seizure =========
+
+--- DEBUG followup_and_event function ---
+Input parameters:
+- outcome_var: epilepsy_or_seizure_start_date 
+- data_cut_date: 2023-10-01 
+- late_onset: FALSE 
+- early_onset: FALSE 
+
+Before excluding pre-existing Epilepsy/Seizure patients: 9746 
+After excluding pre-existing Epilepsy/Seizure patients: 9272 (excluded: 474 patients)
+- Input data rows: 9272 
+- Patients with outcome dates: 240 
+- Outcome date range: 17630 to 19624 
+
+DEBUG intermediate calculations:
+- Crossover dates available: 0 
+- EHR end dates available: 7785 
+- Raw events (before late-onset filter): 172 
+- Events after time >= 0 filter: 172 
+- Patients filtered out due to event_time < 0: 1056 
+
+Event time distribution:
+- Min event_time: 0 
+- Max event_time: 2098 
+- Mean event_time: 978.8768 
+
+Censoring reasons:
+
+              Event after censoring                      Event occurred 
+                                 51                                 172 
+No event - administrative censoring 
+                               7993 
+--- END DEBUG followup_and_event ---
+
+
+Total sample size before TMLE: 8216 
+Total events: 172 
+
+=== Starting Bootstrap Analysis ===
+
+Performing TMLE bootstrap with 1000 replicates using parallel processing...
+Using 15 cores
+  |======================================================================| 100%
+
+Successful bootstrap replicates: 1000 out of 1000 
+
+Saved bootstrap results to: tmle_bootstrap_GLP1_vs_SU_DPP4_Epilepsy_Seizure.rds 
+Saved bootstrap samples to: tmle_bootstrap_samples_GLP1_vs_SU_DPP4_Epilepsy_Seizure.csv 
+Uploaded files to bucket
+
+Bootstrap Summary:
+Mean risk difference: -0.0106 
+Bootstrap 95% CI: [ -0.0174 , -0.0029 ]
+Bootstrap SD: 0.0038 
+Saved bootstrap histogram to: bootstrap_hist_GLP1_vs_SU_DPP4_Epilepsy_Seizure.png 
+
+
+Remaining bootstrap-focused analysis complete.
+Check saved files for bootstrap statistics and plots.
+
+Loaded bootstrap results from RDS file for GLP1 vs SGLT2 
+Loaded bootstrap results from RDS file for GLP1 vs SU_DPP4 
+
+=== Bootstrap Distribution Comparison ===
+Outcome: Late-onset Epilepsy/Seizure 
+
+---  GLP1 vs SGLT2  ---
+  Sample size: 1000 
+  Mean (SD): -0.00929 ( 0.00336 )
+  Median: -0.00943 
+  95% CI: [ -0.01565 , -0.00239 ]
+  P(RD < 0): 0.996 
+  Min/Max: -0.02224 / 0.00851 
+
+---  GLP1 vs SU_DPP4  ---
+  Sample size: 1000 
+  Mean (SD): -0.01119 ( 0.00318 )
+  Median: -0.01138 
+  95% CI: [ -0.01704 , -0.00426 ]
+  P(RD < 0): 0.999 
+  Min/Max: -0.02011 / 0.00049 
+
+=== Pairwise Comparisons ===
+GLP1 vs SGLT2 vs GLP1 vs SU_DPP4 :
+  Mean difference: 0.00191 
+  P(diff < 0): 0.329 
+
+Loaded bootstrap results from RDS file for GLP1 vs SGLT2 
+Loaded bootstrap results from RDS file for GLP1 vs SU_DPP4 
+
+
+=== Bootstrap Distribution Comparison ===
+Outcome: Late-onset Epilepsy/Seizure 
+
+---  GLP1 vs SGLT2  ---
+  Sample size: 1000 
+  Mean (SD): -0.00929 ( 0.00336 )
+  Median: -0.00943 
+  95% CI: [ -0.01565 , -0.00239 ]
+  P(RD < 0): 0.996 
+  Min/Max: -0.02224 / 0.00851 
+
+---  GLP1 vs SU_DPP4  ---
+  Sample size: 1000 
+  Mean (SD): -0.01119 ( 0.00318 )
+  Median: -0.01138 
+  95% CI: [ -0.01704 , -0.00426 ]
+  P(RD < 0): 0.999 
+  Min/Max: -0.02011 / 0.00049 
+
+=== Pairwise Comparisons ===
+GLP1 vs SGLT2 vs GLP1 vs SU_DPP4 :
+  Mean difference: 0.00191 
+  P(diff < 0): 0.329 
+
+Loaded bootstrap results from RDS file for GLP1 vs SGLT2 
+Loaded bootstrap results from RDS file for GLP1 vs SU_DPP4 
+
+
+=== Bootstrap Distribution Comparison ===
+Outcome: Late-onset Epilepsy/Seizure 
+
+---  GLP1 vs SGLT2  ---
+  Sample size: 1000 
+  Mean (SD): -0.00929 ( 0.00336 )
+  Median: -0.00943 
+  95% CI: [ -0.01565 , -0.00239 ]
+  P(RD < 0): 0.996 
+  Min/Max: -0.02224 / 0.00851 
+
+---  GLP1 vs SU_DPP4  ---
+  Sample size: 1000 
+  Mean (SD): -0.01119 ( 0.00318 )
+  Median: -0.01138 
+  95% CI: [ -0.01704 , -0.00426 ]
+  P(RD < 0): 0.999 
+  Min/Max: -0.02011 / 0.00049 
+
+=== Pairwise Comparisons ===
+GLP1 vs SGLT2 vs GLP1 vs SU_DPP4 :
+  Mean difference: 0.00191 
+  P(diff < 0): 0.329 
+
+Loaded bootstrap results from RDS file for GLP1 vs SGLT2 
+Loaded bootstrap results from RDS file for GLP1 vs SU_DPP4 
+
+=== Bootstrap Distribution Comparison ===
+Outcome: Epilepsy/Seizure 
+
+---  GLP1 vs SGLT2  ---
+  Sample size: 1000 
+  Mean (SD): -0.01024 ( 0.00362 )
+  Median: -0.01028 
+  95% CI: [ -0.01663 , -0.00242 ]
+  P(RD < 0): 0.995 
+  Min/Max: -0.02177 / 0.00705 
+
+---  GLP1 vs SU_DPP4  ---
+  Sample size: 1000 
+  Mean (SD): -0.01059 ( 0.00376 )
+  Median: -0.01072 
+  95% CI: [ -0.01741 , -0.00291 ]
+  P(RD < 0): 0.992 
+  Min/Max: -0.02262 / 0.00348 
+
+=== Pairwise Comparisons ===
+GLP1 vs SGLT2 vs GLP1 vs SU_DPP4 :
+  Mean difference: 0.00035 
+  P(diff < 0): 0.472 
+
+Loaded bootstrap results from RDS file for GLP1 vs SGLT2 
+Loaded bootstrap results from RDS file for GLP1 vs SU_DPP4 
+
+
+=== Bootstrap Distribution Comparison ===
+Outcome: Epilepsy/Seizure 
+
+---  GLP1 vs SGLT2  ---
+  Sample size: 1000 
+  Mean (SD): -0.01024 ( 0.00362 )
+  Median: -0.01028 
+  95% CI: [ -0.01663 , -0.00242 ]
+  P(RD < 0): 0.995 
+  Min/Max: -0.02177 / 0.00705 
+
+---  GLP1 vs SU_DPP4  ---
+  Sample size: 1000 
+  Mean (SD): -0.01059 ( 0.00376 )
+  Median: -0.01072 
+  95% CI: [ -0.01741 , -0.00291 ]
+  P(RD < 0): 0.992 
+  Min/Max: -0.02262 / 0.00348 
+
+=== Pairwise Comparisons ===
+GLP1 vs SGLT2 vs GLP1 vs SU_DPP4 :
+  Mean difference: 0.00035 
+  P(diff < 0): 0.472 
+
+Loaded bootstrap results from RDS file for GLP1 vs SGLT2 
+Loaded bootstrap results from RDS file for GLP1 vs SU_DPP4 
+
+
+=== Bootstrap Distribution Comparison ===
+Outcome: Epilepsy/Seizure 
+
+---  GLP1 vs SGLT2  ---
+  Sample size: 1000 
+  Mean (SD): -0.01024 ( 0.00362 )
+  Median: -0.01028 
+  95% CI: [ -0.01663 , -0.00242 ]
+  P(RD < 0): 0.995 
+  Min/Max: -0.02177 / 0.00705 
+
+---  GLP1 vs SU_DPP4  ---
+  Sample size: 1000 
+  Mean (SD): -0.01059 ( 0.00376 )
+  Median: -0.01072 
+  95% CI: [ -0.01741 , -0.00291 ]
+  P(RD < 0): 0.992 
+  Min/Max: -0.02262 / 0.00348 
+
+=== Pairwise Comparisons ===
+GLP1 vs SGLT2 vs GLP1 vs SU_DPP4 :
+  Mean difference: 0.00035 
+  P(diff < 0): 0.472 
+
+Loaded bootstrap results from RDS file for GLP1 vs SGLT2 
+Loaded bootstrap results from RDS file for GLP1 vs SU_DPP4 
+
+=== Bootstrap Distribution Comparison ===
+Outcome: Epilepsy/Seizure 
+
+---  GLP1 vs SGLT2  ---
+  Sample size: 1000 
+  Mean (SD): -0.01024 ( 0.00362 )
+  Median: -0.01028 
+  95% CI: [ -0.01663 , -0.00242 ]
+  P(RD < 0): 0.995 
+  Min/Max: -0.02177 / 0.00705 
+
+---  GLP1 vs SU_DPP4  ---
+  Sample size: 1000 
+  Mean (SD): -0.01059 ( 0.00376 )
+  Median: -0.01072 
+  95% CI: [ -0.01741 , -0.00291 ]
+  P(RD < 0): 0.992 
+  Min/Max: -0.02262 / 0.00348 
+
+=== Pairwise Comparisons ===
+GLP1 vs SGLT2 vs GLP1 vs SU_DPP4 :
+  Mean difference: 0.00035 
+  P(diff < 0): 0.472 
+
+
+=== Plot saved successfully ===
+Filename: Figure_2_bootstrap_comparison.png 
+Dimensions: 10 x 6 inches
+Resolution: 300 DPI
+File size: 189 KB
+
+Loaded bootstrap results from RDS file for GLP1 vs SGLT2 
+Loaded bootstrap results from RDS file for GLP1 vs SU_DPP4 
+
+=== Bootstrap Distribution Comparison ===
+Outcome: Epilepsy/Seizure 
+
+---  GLP1 vs SGLT2  ---
+  Sample size: 1000 
+  Mean (SD): -0.01024 ( 0.00362 )
+  Median: -0.01028 
+  95% CI: [ -0.01663 , -0.00242 ]
+  P(RD < 0): 0.995 
+  Min/Max: -0.02177 / 0.00705 
+
+---  GLP1 vs SU_DPP4  ---
+  Sample size: 1000 
+  Mean (SD): -0.01059 ( 0.00376 )
+  Median: -0.01072 
+  95% CI: [ -0.01741 , -0.00291 ]
+  P(RD < 0): 0.992 
+  Min/Max: -0.02262 / 0.00348 
+
+=== Pairwise Comparisons ===
+GLP1 vs SGLT2 vs GLP1 vs SU_DPP4 :
+  Mean difference: 0.00035 
+  P(diff < 0): 0.472 
+
+
+=== Plot saved successfully ===
+Filename: bootstrap_density_GLP1_vs_SGLT2_vs_GLP1_vs_SU_DPP4_Epilepsy_Seizure_20250806_134402.png 
+Dimensions: 10 x 6 inches
+Resolution: 300 DPI
+File size: 189 KB
+
+Loaded bootstrap results from RDS file for GLP1 vs SGLT2 
+Loaded bootstrap results from RDS file for GLP1 vs SU_DPP4 
+
+=== Bootstrap Distribution Comparison ===
+Outcome: Epilepsy/Seizure 
+
+---  GLP1 vs SGLT2  ---
+  Sample size: 1000 
+  Mean (SD): -0.01024 ( 0.00362 )
+  Median: -0.01028 
+  95% CI: [ -0.01663 , -0.00242 ]
+  P(RD < 0): 0.995 
+  Min/Max: -0.02177 / 0.00705 
+
+---  GLP1 vs SU_DPP4  ---
+  Sample size: 1000 
+  Mean (SD): -0.01059 ( 0.00376 )
+  Median: -0.01072 
+  95% CI: [ -0.01741 , -0.00291 ]
+  P(RD < 0): 0.992 
+  Min/Max: -0.02262 / 0.00348 
+
+=== Pairwise Comparisons ===
+GLP1 vs SGLT2 vs GLP1 vs SU_DPP4 :
+  Mean difference: 0.00035 
+  P(diff < 0): 0.472 
+
+Plot saved as: manuscript_fig2_bootstrap_density.png 
+Loaded bootstrap results from RDS file for GLP1 vs SGLT2 
+Loaded bootstrap results from RDS file for GLP1 vs SU_DPP4 
+
+=== Bootstrap Distribution Comparison ===
+Outcome: Epilepsy/Seizure 
+
+---  GLP1 vs SGLT2  ---
+  Sample size: 1000 
+  Mean (SD): -0.01024 ( 0.00362 )
+  Median: -0.01028 
+  95% CI: [ -0.01663 , -0.00242 ]
+  P(RD < 0): 0.995 
+  Min/Max: -0.02177 / 0.00705 
+
+---  GLP1 vs SU_DPP4  ---
+  Sample size: 1000 
+  Mean (SD): -0.01059 ( 0.00376 )
+  Median: -0.01072 
+  95% CI: [ -0.01741 , -0.00291 ]
+  P(RD < 0): 0.992 
+  Min/Max: -0.02262 / 0.00348 
+
+=== Pairwise Comparisons ===
+GLP1 vs SGLT2 vs GLP1 vs SU_DPP4 :
+  Mean difference: 0.00035 
+  P(diff < 0): 0.472 
+
+
+=== Plot saved successfully ===
+Filename: bootstrap_4panel_analysis.png 
+Dimensions: 12 x 10 inches
+Resolution: 300 DPI
+File size: 272 KB

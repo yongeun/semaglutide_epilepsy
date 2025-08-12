@@ -1,0 +1,291 @@
+================================================================================ 
+RUNNING STEP-BY-STEP COHORT ANALYSIS
+================================================================================ 
+
+>>> RUNNING QUICK OVERVIEW FIRST <<<
+
+=== QUICK COHORT OVERVIEW ===
+1. Initial merged_df_2 size: 393596 
+2. Diabetes status:
+
+     0      1 
+320479  73117 
+   - T2DM patients (dm==1): 73117 
+3. Epilepsy/seizure status in T2DM patients:
+
+    0     1 
+66971  6146 
+   - T2DM patients with epilepsy/seizure history: 6146 
+4. Other neurologic conditions in T2DM patients:
+   - ADRD: 4246 
+   - Stroke: 8259 
+5. Time period for drug analysis: 2018-01-01 to 2021-12-31 
+
+>>> RUNNING DETAILED STEP-BY-STEP ANALYSIS <<<
+
+ ================================================================================ 
+FLOWCHART-BASED COHORT SELECTION ANALYSIS
+================================================================================ 
+
+=== STEP 1: ALL OF US PARTICIPANTS ===
+Participants within All of Us with EHR data: 393,596 
+Data verification:
+  - Columns available: person_id, date_of_birth, race, ethnicity, sex, ins1, ins2, aname1, aname2, aname3 ...
+  - Key column 'dm' available: TRUE 
+  - Key column 'epilepsy_or_seizure' available: TRUE 
+
+=== STEP 2: DIABETES FILTER ===
+Excluded (not diagnosed with diabetes): 320,479 
+Patients with diabetes: 73,117 
+
+=== STEP 3: NEW USER DRUG PRESCRIPTIONS ===
+Period: December 2017 through December 2021
+Excluded (No new user prescription of semaglutide, SGLT2i, or SU/DPP4i): 59,243 
+Patients with new user prescriptions of semaglutide, SGLT2i, or SU/DPP4i: 13,874 
+
+=== STEP 4: COMPARISON GROUP FORMATION ===
+Individual drug new users:
+  - GLP1 (semaglutide) new users: 4,080 
+  - SGLT2i new users: 6,691 
+  - SU/DPP4i new users: 8,789 
+Drug overlaps (patients with both):
+  - GLP1 & SGLT2i: 1,136 
+  - GLP1 & SU/DPP4i: 762 
+  - SGLT2i & SU/DPP4i: 1,928 
+
+Comparison group sizes:
+Patient prescribed a semaglutide OR a SGLT2i: 8,087 
+Patient prescribed a semaglutide OR a SU/DPP4i: 10,427 
+Patient prescribed a SGLT2i OR a SU/DPP4i: 12,151 
+
+=== STEP 5: EXCLUSIONS FOR EACH COMPARISON ===
+
+--- SEMAGLUTIDE vs SGLT2i ---
+  DEBUG: Column names in indices:
+    - Exposure idx columns: person_id, glp1_idx 
+    - Comparator idx columns: person_id, sglt2_idx 
+    - Using exposure date column: glp1_idx 
+    - Using comparator date column: sglt2_idx 
+  DEBUG: Temporal prior use analysis:
+    - GLP1 only (no SGLT2i ): 2,944 
+    - SGLT2i only (no GLP1 ): 5,555 
+    - Prior GLP1 use (before SGLT2i ): 352 
+    - Prior SGLT2i use (before GLP1 ): 722 
+    - Both drugs same date: 62 
+    - Total excluded for prior use: 1,136 
+  DEBUG: Epilepsy exclusions in cohort (n= 8087 ): 567 
+Total cohort: 8,087 
+Excluded:
+  - Prior use of SGLT2i: 722 
+  - Prior use of GLP1: 352 
+  - GLP1 and SGLT2i same date: 62 
+  - Total prior use exclusions: 1,136 
+  - Epilepsy/seizure diagnosis before index date: 567 
+  - Total excluded: 1,703 
+Final cohort: 6,384 
+  DEBUG: Group 1 treatment assignment counts: 
+
+ glp1 sglt2 
+ 1973  4558 
+Final treatment groups:
+  - Semaglutide: 1,973 
+  - SGLT2i: 4,558 
+  - Verification: Total should be 6,531 vs reported 6,384 
+
+--- SEMAGLUTIDE vs SU/DPP4i ---
+  DEBUG: Column names in indices:
+    - Exposure idx columns: person_id, glp1_idx 
+    - Comparator idx columns: person_id, su_dpp4_idx 
+    - Using exposure date column: glp1_idx 
+    - Using comparator date column: su_dpp4_idx 
+  DEBUG: Temporal prior use analysis:
+    - GLP1 only (no SU/DPP4i ): 3,318 
+    - SU/DPP4i only (no GLP1 ): 8,027 
+    - Prior GLP1 use (before SU/DPP4i ): 99 
+    - Prior SU/DPP4i use (before GLP1 ): 642 
+    - Both drugs same date: 21 
+    - Total excluded for prior use: 762 
+  DEBUG: Epilepsy exclusions in cohort (n= 10427 ): 754 
+Total cohort: 10,427 
+Excluded:
+  - Prior use of SU/DPP4i: 642 
+  - Prior use of GLP1: 99 
+  - GLP1 and SU/DPP4i same date: 21 
+  - Total prior use exclusions: 762 
+  - Epilepsy/seizure diagnosis before index date: 754 
+  - Total excluded: 1,516 
+Final cohort: 8,911 
+  DEBUG: Group 2 treatment assignment counts: 
+
+   glp1 su_dpp4 
+   2321    6711 
+Final treatment groups:
+  - Semaglutide: 2,321 
+  - SU/DPP4i: 6,711 
+  - Verification: Total should be 9,032 vs reported 8,911 
+
+--- SGLT2i vs SU/DPP4i ---
+  DEBUG: Column names in indices:
+    - Exposure idx columns: person_id, sglt2_idx 
+    - Comparator idx columns: person_id, su_dpp4_idx 
+    - Using exposure date column: sglt2_idx 
+    - Using comparator date column: su_dpp4_idx 
+  DEBUG: Temporal prior use analysis:
+    - SGLT2i only (no SU/DPP4i ): 4,763 
+    - SU/DPP4i only (no SGLT2i ): 6,861 
+    - Prior SGLT2i use (before SU/DPP4i ): 418 
+    - Prior SU/DPP4i use (before SGLT2i ): 1,325 
+    - Both drugs same date: 185 
+    - Total excluded for prior use: 1,928 
+  DEBUG: Epilepsy exclusions in cohort (n= 12151 ): 914 
+Total cohort (SGLT2i OR SU/DPP4i users): 12,151 
+Drug composition:
+  - SGLT2i only users: 4,763 
+  - SU/DPP4i only users: 6,861 
+  - Users with both drugs: 1,928 
+Excluded:
+  - Prior use of SGLT2i: 418 
+  - Prior use of SU/DPP4i: 1,325 
+  - SGLT2i and SU/DPP4i same date: 185 
+  - Total prior use exclusions: 1,928 
+  - Epilepsy/seizure diagnosis before index date: 914 
+  - Total excluded: 2,842 
+Final cohort: 9,309 
+  DEBUG: Group 3 treatment assignment counts: 
+
+  sglt2 su_dpp4 
+   3885    5690 
+Final treatment groups:
+  - SGLT2i: 3,885 
+  - SU/DPP4i: 5,690 
+  - Verification: Total should be 9,575 vs reported 9,309 
+
+=== STEP 6: ADDITIONAL EXCLUSIONS FOR FINAL ANALYSIS ===
+ADDITIONAL EXCLUSIONS APPLIED BETWEEN FLOWCHART AND FINAL ANALYSIS:
+(These explain the difference between flowchart numbers and publication table numbers)
+
+GLP1 vs SGLT2 (Epilepsy/Seizure analysis):
+  Flowchart numbers:    Sema= 1,973 , SGLT2= 4,558 , Total= 6,384 
+  Final CSV numbers:    Sema= 1,650 , SGLT2= 3,725 , Total= 5,375 
+  Additional excluded:  Sema= 323 , SGLT2= 833 , Total= 1,009 
+  Likely additional exclusions:
+    - Patients filtered out due to event_time < 0
+    - Patients with missing values in covariates
+    - Patients with insufficient follow-up time
+    - Patients excluded during propensity score analysis
+    - Patients with missing outcome data
+
+GLP1 vs SU/DPP4 (Epilepsy/Seizure analysis):
+  Flowchart numbers:    Sema= 2,321 , SU/DPP4= 6,711 , Total= 8,911 
+  Final CSV numbers:    Sema= 1,964 , SU/DPP4= 5,362 , Total= 7,326 
+  Additional excluded:  Sema= 357 , SU/DPP4= 1,349 , Total= 1,585 
+  Likely additional exclusions:
+    - Patients filtered out due to event_time < 0
+    - Patients with missing values in covariates
+    - Patients with insufficient follow-up time
+    - Patients excluded during propensity score analysis
+    - Patients with missing outcome data
+
+SGLT2 vs SU/DPP4 (Epilepsy/Seizure analysis):
+  Flowchart numbers:    SGLT2= 3,885 , SU/DPP4= 5,690 , Total= 9,309 
+  Final CSV numbers:    SGLT2= 3,220 , SU/DPP4= 4,497 , Total= 7,717 
+  Additional excluded:  SGLT2= 665 , SU/DPP4= 1,193 , Total= 1,592 
+  Likely additional exclusions:
+    - Patients filtered out due to event_time < 0
+    - Patients with missing values in covariates
+    - Patients with insufficient follow-up time
+    - Patients excluded during propensity score analysis
+    - Patients with missing outcome data
+
+
+=== STEP 7: CORRECTED FLOWCHART SUMMARY (with final analysis numbers) ===
+
+=== FLOWCHART EXACTLY MATCHING YOUR IMAGE ===
+
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                      393 596     Participants within All of Us with EHR data                    │
+└─────────────────────────────────────────────────────────────────────────────────┘
+                                           │
+                                           │
+                                           ▼
+                      ┌──────────────────────────────────────────────────────────┐
+                      │   320 479   Excluded (not diagnosed with diabetes)  │
+                      └──────────────────────────────────────────────────────────┘
+                                           │
+                                           ▼
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                       73 117     Patients with diabetes                                 │
+└─────────────────────────────────────────────────────────────────────────────────┘
+                                           │
+                                           │
+                                           ▼
+                      ┌──────────────────────────────────────────────────────────┐
+                      │    59 243   Excluded (No new user prescription of         │
+                      │          semaglutide, SGLT2i, or SU/DPP4i from         │
+                      │          December 2017 through December 2021)          │
+                      └──────────────────────────────────────────────────────────┘
+                                           │
+                                           ▼
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                       13 874     Patients with new user prescriptions of semaglutide,         │
+│                                or SU/DPP4i from December 2017 through December 2021    │
+└─────────────────────────────────────────────────────────────────────────────────┘
+                                           │
+                     ┌─────────────────────┼─────────────────────┐
+                     │                     │                     │
+                     ▼                     ▼                     ▼
+┌─────────────────────────┐ ┌─────────────────────────┐ ┌─────────────────────────┐
+│    8 087   Patient prescribed │ │    10 427   Patient prescribed │ │    12 151   Patient prescribed │
+│         a semaglutide   │ │         a semaglutide   │ │         a SGLT2i or     │
+│         or a SGLT2i     │ │         or a SU/DPP4i   │ │         a SU/DPP4i      │
+└─────────────────────────┘ └─────────────────────────┘ └─────────────────────────┘
+            │                           │                           │
+            ▼                           ▼                           ▼
+┌─────────────────────────┐ ┌─────────────────────────┐ ┌─────────────────────────┐
+│     1 703     Excluded     │ │     1 516     Excluded     │ │     2 842     Excluded     │
+│       352   Prior use of   │ │        99   Prior use of   │ │       418   Prior use of   │
+│          semaglutide    │ │          semaglutide    │ │          SGLT2i         │
+│       722   Prior use of   │ │       642   Prior use of   │ │     1325   Prior use of   │
+│          SGLT2i         │ │          SU/DPP4i       │ │          SU/DPP4i       │
+│        62   Semaglutide and│ │        21   Semaglutide and│ │       185   Semaglutide and│
+│          SGLT2i started │ │          SU/DPP4i       │ │          SU/DPP4i       │
+│          on the same    │ │          started on the │ │          started on the │
+│          date           │ │          same date      │ │          same date      │
+│       567   Epilepsy/seizure│ │       754   Epilepsy/seizure│ │       914   Epilepsy/seizure│
+│          diagnosis      │ │          diagnosis      │ │          diagnosis      │
+│          before index   │ │          before index   │ │          before index   │
+│          date           │ │          date           │ │          date           │
+│       1009   Missing covariates│ │       1585   Missing covariates│ │         0   Missing covariates│
+│          or insufficient│ │          or insufficient│ │          or insufficient│
+│          follow-up      │ │          follow-up      │ │          follow-up      │
+└─────────────────────────┘ └─────────────────────────┘ └─────────────────────────┘
+            │                           │                           │
+            ▼                           ▼                           ▼
+┌─────────────────────────┐ ┌─────────────────────────┐ ┌─────────────────────────┐
+│     5 375   Patient prescribed │ │     7 326   Patient prescribed │ │     9 309   Patient prescribed │
+│         a semaglutide   │ │         a semaglutide   │ │         a SGLT2i        │
+│         or a SGLT2i     │ │         or a SU/DPP4i   │ │         or a SU/DPP4i   │
+│                         │ │                         │ │                         │
+│      1 650   Semaglutide   │ │      1 964   Semaglutide   │ │      3 885   SGLT2i          │
+│      3 725   SGLT2i        │ │      5 362   SU/DPP4i      │ │      5 690   SU/DPP4i        │
+└─────────────────────────┘ └─────────────────────────┘ └─────────────────────────┘
+
+Note: *** and **** indicate that SGLT2i vs SU/DPP4i comparison is not included
+in the neurologic outcomes analysis (epilepsy/seizure, ADRD, stroke).
+This comparison was only used for cardiovascular/diabetes outcomes.
+
+=== ARITHMETIC VERIFICATION ===
+GLP1 vs SGLT2:  1,650  +  3,725  =  5,375 ✓ CORRECT
+GLP1 vs SU/DPP4:  1,964  +  5,362  =  7,326 ✓ CORRECT
+SUCCESS: stepwise_results created with 46 elements
+
+ ============================================================ 
+STEP-BY-STEP ANALYSIS COMPLETED!
+============================================================ 
+
+SUMMARY:
+Initial cohort: 393596 
+T2DM patients: 73117 
+Epilepsy in T2DM: 6146 
+ADRD in T2DM: 4246 
+Stroke in T2DM: 8259 

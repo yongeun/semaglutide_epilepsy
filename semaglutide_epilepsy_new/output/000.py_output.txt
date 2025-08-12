@@ -1,0 +1,60 @@
+   person_id             date_of_birth                       race  \
+0    3342781 1994-06-15 00:00:00+00:00   More than one population   
+1    1820787 1948-06-15 00:00:00+00:00  Black or African American   
+2    1820787 1948-06-15 00:00:00+00:00  Black or African American   
+3    2786453 1987-06-15 00:00:00+00:00                      White   
+4    3023756 1943-06-15 00:00:00+00:00                      White   
+
+            ethnicity        sex                   ins1  \
+0  Hispanic or Latino  PMI: Skip  Health Insurance: Yes   
+1  Hispanic or Latino  PMI: Skip  Health Insurance: Yes   
+2  Hispanic or Latino  PMI: Skip  Health Insurance: Yes   
+3  Hispanic or Latino  PMI: Skip  Health Insurance: Yes   
+4  Hispanic or Latino  PMI: Skip  Health Insurance: Yes   
+
+                                       ins2                     aname1  \
+0  Insurance Type Update: Employer Or Union  PMI: Prefer Not To Answer   
+1  Insurance Type Update: Employer Or Union     Annual Income: 35k 50k   
+2           Insurance Type Update: Medicare     Annual Income: 35k 50k   
+3           Insurance Type Update: Medicaid  PMI: Prefer Not To Answer   
+4  Insurance Type Update: Employer Or Union  PMI: Prefer Not To Answer   
+
+                                aname2                  aname3  \
+0  Highest Grade: College One to Three          PMI: Dont Know   
+1         Highest Grade: Twelve Or GED  100 Cigs Lifetime: Yes   
+2         Highest Grade: Twelve Or GED  100 Cigs Lifetime: Yes   
+3                            PMI: Skip   100 Cigs Lifetime: No   
+4  Highest Grade: College One to Three   100 Cigs Lifetime: No   
+
+                        aname4                    aname5  \
+0                         None  Alcohol Participant: Yes   
+1  Smoke Frequency: Not At All  Alcohol Participant: Yes   
+2  Smoke Frequency: Not At All  Alcohol Participant: Yes   
+3                         None   Alcohol Participant: No   
+4                         None  Alcohol Participant: Yes   
+
+                                       aname6  \
+0            Drink Frequency Past Year: Never   
+1  Drink Frequency Past Year: Monthly Or Less   
+2  Drink Frequency Past Year: Monthly Or Less   
+3                                        None   
+4  Drink Frequency Past Year: Monthly Or Less   
+
+                              aname7  \
+0                               None   
+1  Average Daily Drink Count: 1 or 2   
+2  Average Daily Drink Count: 1 or 2   
+3                               None   
+4  Average Daily Drink Count: 1 or 2   
+
+                                            aname8  
+0                                             None  
+1  6 or More Drinks Occurrence: Never In Last Year  
+2  6 or More Drinks Occurrence: Never In Last Year  
+3                                             None  
+4  6 or More Drinks Occurrence: Never In Last Year  
+Total number of rows: 462177
+Found 68581 duplicate rows (based on person_id)
+Original row count: 462177
+After removing duplicates: 393596 rows
+b'Copying file://./ehr_df.csv [Content-Type=text/csv]...\n/ [0 files][    0.0 B/125.4 MiB]                                                \r-\r- [0 files][  2.6 MiB/125.4 MiB]                                                \r\\\r\\ [0 files][  4.4 MiB/125.4 MiB]                                                \r|\r/\r/ [0 files][  6.2 MiB/125.4 MiB]                                                \r-\r- [0 files][  8.0 MiB/125.4 MiB]                                                \r\\\r|\r| [0 files][  9.8 MiB/125.4 MiB]                                                \r/\r/ [0 files][ 11.6 MiB/125.4 MiB]                                                \r-\r- [0 files][ 13.4 MiB/125.4 MiB]                                                \r\\\r|\r| [0 files][ 14.7 MiB/125.4 MiB]                                                \r/\r/ [0 files][ 15.5 MiB/125.4 MiB]                                                \r-\r\\\r\\ [0 files][ 16.5 MiB/125.4 MiB]                                                \r|\r| [0 files][ 17.5 MiB/125.4 MiB]   1011 KiB/s                                   \r/\r-\r- [0 files][ 19.3 MiB/125.4 MiB]    1.0 MiB/s                                   \r\\\r|\r| [0 files][ 21.1 MiB/125.4 MiB]    1.3 MiB/s                                   \r/\r/ [0 files][ 21.7 MiB/125.4 MiB]    1.1 MiB/s                                   \r-\r- [0 files][ 22.4 MiB/125.4 MiB]    1.1 MiB/s                                   \r\\\r|\r| [0 files][ 23.5 MiB/125.4 MiB]  957.6 KiB/s                                   \r/\r/ [0 files][ 25.0 MiB/125.4 MiB]  869.9 KiB/s                                   \r-\r\\\r\\ [0 files][ 26.8 MiB/125.4 MiB]    1.1 MiB/s                                   \r|\r| [0 files][ 28.6 MiB/125.4 MiB]    1.4 MiB/s                                   \r/\r/ [0 files][ 30.4 MiB/125.4 MiB]    1.6 MiB/s                                   \r-\r\\\r\\ [0 files][ 32.2 MiB/125.4 MiB]    1.7 MiB/s                                   \r|\r| [0 files][ 34.0 MiB/125.4 MiB]    1.8 MiB/s                                   \r/\r-\r- [0 files][ 35.8 MiB/125.4 MiB]    1.8 MiB/s                                   \r\\\r\\ [0 files][ 37.6 MiB/125.4 MiB]    1.8 MiB/s                                   \r|\r| [0 files][ 39.4 MiB/125.4 MiB]    1.8 MiB/s                                   \r/\r-\r- [0 files][ 41.2 MiB/125.4 MiB]    1.8 MiB/s                                   \r\\\r\\ [0 files][ 43.0 MiB/125.4 MiB]    1.8 MiB/s                                   \r|\r/\r/ [0 files][ 44.9 MiB/125.4 MiB]    1.8 MiB/s                                   \r-\r- [0 files][ 46.7 MiB/125.4 MiB]    1.8 MiB/s                                   \r\\\r\\ [0 files][ 48.5 MiB/125.4 MiB]    1.8 MiB/s                                   \r|\r/\r/ [0 files][ 50.3 MiB/125.4 MiB]    1.8 MiB/s                                   \r-\r- [0 files][ 52.1 MiB/125.4 MiB]    1.8 MiB/s                                   \r\\\r|\r| [0 files][ 53.9 MiB/125.4 MiB]    1.8 MiB/s                                   \r/\r/ [0 files][ 55.7 MiB/125.4 MiB]    1.8 MiB/s                                   \r-\r- [0 files][ 57.5 MiB/125.4 MiB]    1.8 MiB/s                                   \r\\\r|\r| [0 files][ 59.3 MiB/125.4 MiB]    1.8 MiB/s                                   \r/\r/ [0 files][ 61.1 MiB/125.4 MiB]    1.8 MiB/s                                   \r-\r\\\r\\ [0 files][ 62.9 MiB/125.4 MiB]    1.8 MiB/s                                   \r|\r| [0 files][ 64.7 MiB/125.4 MiB]    1.8 MiB/s                                   \r/\r/ [0 files][ 66.5 MiB/125.4 MiB]    1.8 MiB/s                                   \r-\r\\\r\\ [0 files][ 68.3 MiB/125.4 MiB]    1.8 MiB/s                                   \r|\r| [0 files][ 70.1 MiB/125.4 MiB]    1.8 MiB/s                                   \r/\r-\r- [0 files][ 71.9 MiB/125.4 MiB]    1.8 MiB/s                                   \r\\\r\\ [0 files][ 73.7 MiB/125.4 MiB]    1.8 MiB/s                                   \r|\r| [0 files][ 75.5 MiB/125.4 MiB]    1.8 MiB/s                                   \r/\r-\r- [0 files][ 77.3 MiB/125.4 MiB]    1.8 MiB/s                                   \r\\\r\\ [0 files][ 79.2 MiB/125.4 MiB]    1.8 MiB/s                                   \r|\r/\r/ [0 files][ 81.0 MiB/125.4 MiB]    1.8 MiB/s                                   \r-\r- [0 files][ 82.8 MiB/125.4 MiB]    1.8 MiB/s                                   \r\\\r\\ [0 files][ 84.6 MiB/125.4 MiB]    1.8 MiB/s                                   \r|\r/\r/ [0 files][ 86.4 MiB/125.4 MiB]    1.8 MiB/s                                   \r-\r- [0 files][ 88.2 MiB/125.4 MiB]    1.8 MiB/s                                   \r\\\r|\r| [0 files][ 90.0 MiB/125.4 MiB]    1.8 MiB/s                                   \r/\r/ [0 files][ 91.8 MiB/125.4 MiB]    1.8 MiB/s                                   \r-\r- [0 files][ 93.6 MiB/125.4 MiB]    1.8 MiB/s                                   \r\\\r|\r| [0 files][ 95.4 MiB/125.4 MiB]    1.8 MiB/s                                   \r/\r/ [0 files][ 97.2 MiB/125.4 MiB]    1.8 MiB/s                                   \r-\r\\\r\\ [0 files][ 99.0 MiB/125.4 MiB]    1.8 MiB/s                                   \r|\r| [0 files][100.8 MiB/125.4 MiB]    1.8 MiB/s                                   \r/\r/ [0 files][102.6 MiB/125.4 MiB]    1.8 MiB/s                                   \r-\r\\\r\\ [0 files][104.4 MiB/125.4 MiB]    1.8 MiB/s                                   \r|\r| [0 files][106.2 MiB/125.4 MiB]    1.8 MiB/s                                   \r/\r-\r- [0 files][108.0 MiB/125.4 MiB]    1.8 MiB/s                                   \r\\\r\\ [0 files][109.8 MiB/125.4 MiB]    1.8 MiB/s                                   \r|\r| [0 files][111.6 MiB/125.4 MiB]    1.8 MiB/s                                   \r/\r-\r- [0 files][113.4 MiB/125.4 MiB]    1.8 MiB/s                                   \r\\\r\\ [0 files][115.2 MiB/125.4 MiB]    1.8 MiB/s                                   \r|\r/\r/ [0 files][117.0 MiB/125.4 MiB]    1.8 MiB/s                                   \r-\r- [0 files][118.8 MiB/125.4 MiB]    1.8 MiB/s                                   \r\\\r\\ [0 files][120.7 MiB/125.4 MiB]    1.8 MiB/s                                   \r|\r/\r/ [0 files][122.5 MiB/125.4 MiB]    1.8 MiB/s                                   \r-\r- [0 files][124.3 MiB/125.4 MiB]    1.8 MiB/s                                   \r\\\r\\ [1 files][125.4 MiB/125.4 MiB]    1.5 MiB/s                                   \r|\r\nOperation completed over 1 objects/125.4 MiB.                                    \n'

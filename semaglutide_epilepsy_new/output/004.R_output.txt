@@ -1,0 +1,54 @@
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.2     ✔ tibble    3.2.1
+✔ lubridate 1.9.4     ✔ tidyr     1.3.1
+✔ purrr     1.0.4     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Downloading BMI panel data (including both PPI and EHR sources)...
+
+── Data Source Summary ──
+# A tibble: 2 × 3
+  source_type n_measurements n_persons
+  <chr>                <int>     <int>
+1 EHR               13213955    301217
+2 PPI                 583305    489310
+
+── Detailed Source Summary ──
+# A tibble: 10 × 3
+   source_type detailed_source          n_measurements
+   <chr>       <chr>                             <int>
+ 1 EHR         EHR site 699                    1300028
+ 2 EHR         EHR site 392                    1159581
+ 3 EHR         EHR site 195                    1059863
+ 4 EHR         EHR site 144                     812867
+ 5 EHR         EHR site 321                     726063
+ 6 EHR         EHR site 638                     713124
+ 7 EHR         EHR site 310                     536051
+ 8 EHR         Participant Mediated EHR         532544
+ 9 EHR         EHR site 752                     509581
+10 PPI         Staff Portal: HealthPro          486601
+# A tibble: 1 × 5
+  total_persons persons_with_ppi_only persons_with_ehr_only persons_with_both
+          <int>                 <int>                 <int>             <int>
+1        511492                210275                 22182            279035
+# ℹ 1 more variable: median_obs_per_person <dbl>
+
+Rows before filtering: 13797260 
+Rows after filtering: 13752239 
+Percent kept: 99.7 %
+
+── Filtered Data by Source ──
+# A tibble: 2 × 5
+  source_type n_measurements n_persons mean_bmi median_bmi
+  <chr>                <int>     <int>    <dbl>      <dbl>
+1 EHR               13170186    300956     30.8       29.4
+2 PPI                 582053    488400     29.8       28.4
+'gs://fc-secure-d1aa6948-240e-45a7-8ae6-1771e86e1102/data/bmi_panel.csv'
+'gs://fc-secure-d1aa6948-240e-45a7-8ae6-1771e86e1102/data/ehr_df.csv'
+'gs://fc-secure-d1aa6948-240e-45a7-8ae6-1771e86e1102/data/merged_df.csv'
+'gs://fc-secure-d1aa6948-240e-45a7-8ae6-1771e86e1102/data/merged_df_2.csv'
+'gs://fc-secure-d1aa6948-240e-45a7-8ae6-1771e86e1102/data/mother_df.csv'
